@@ -3,7 +3,7 @@ import random
 from operator import index
 
 # Create a list of 100 random numbers ranging from 0 to 1000
-random_numbers = [random.randint(0, 1000) for i in range(10)]
+random_numbers = [random.randint(0, 1000) for i in range(100)]
 print("list of random numbers " + str(random_numbers))
 
 # Create function to sort unsorted list
@@ -11,7 +11,7 @@ def sort (unsorted_list):
     # Create variable that is equal to the length of list
     n = len(unsorted_list)
     # Create temporary list that is equal to initial list
-    unsorted_temp = unsorted_list
+    unsorted_temp = unsorted_list[:]
     # Create empty list for result
     sorted_list = []
     # Iterate through the list as many times as there are elements in unsorted_list.
@@ -66,16 +66,11 @@ def average_even (some_list):
             sum_numbers+=some_list[i]
             # Increment the count of even numbers found.
             count_numbers+=1
-    # Try to calculate the average of even numbers.
-    try:
-        # Calculate the average by dividing the sum of even numbers by their count.
-        average = sum_numbers/count_numbers
-        # Return the computed average.
-        return average
-    # Catch the exception if division by zero occurs (if no even numbers were found).
-    except ZeroDivisionError:
-        # Print an error message if no even numbers are found and thus division by zero is attempted.
-        print("Cannot divide by zero, please try again.")
+    # Check, if count_numbers is not equal to zero
+    if count_numbers==0:
+        raise ZeroDivisionError("Division by zero is not allowed.")
+    # Return the computed average calculated by dividing the sum of even numbers by their count.
+    return sum_numbers/count_numbers
 
 def average_odd (some_list):
     # Initialize the sum of odd numbers to zero.
@@ -90,16 +85,11 @@ def average_odd (some_list):
             sum_numbers+=some_list[i]
             # Increment the count of odd numbers.
             count_numbers+=1
-    # Try block to attempt calculating the average.
-    try:
-        # Calculate the average by dividing the sum by the count of odd numbers.
-        average = sum_numbers/count_numbers
-        # Return the found average.
-        return average
-    # Except block to catch division by zero error.
-    except ZeroDivisionError:
-        # Print error message if no odd numbers are found and division by zero is attempted.
-        print("Cannot divide by zero, please try again.")
+    # Check, if count_numbers is not equal to zero
+    if count_numbers == 0:
+        raise ZeroDivisionError("Division by zero is not allowed.")
+    # Return the computed average calculated by dividing the sum of even numbers by their count.
+    return sum_numbers / count_numbers
 
 average_even_numbers = average_even(sorted_numbers)
 average_odd_numbers = average_odd(sorted_numbers)
