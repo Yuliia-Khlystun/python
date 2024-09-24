@@ -73,12 +73,12 @@ def create_common_dict(dict_list):
             # Increment the dictionary index counter
             count_all += 1
             # If the key exists in only one dictionary, use the original key name in the common_dict
-            if count_exist==1:
-                common_dict[key]=max_value_of_key
-            # If the key exists in multiple dictionaries, append the index of its maximum occurrence
-            else:
-                name_of_key = key + "_" + str(index_of_name_of_key)
-                common_dict[name_of_key]=max_value_of_key
+        if count_exist==1:
+            common_dict[key]=max_value_of_key
+        # If the key exists in multiple dictionaries, append the index of its maximum occurrence
+        else:
+            name_of_key = key + "_" + str(index_of_name_of_key)
+            common_dict[name_of_key]=max_value_of_key
     # Return the aggregated dictionary containing maximum values (and indexed keys if necessary)
     return  common_dict
 
