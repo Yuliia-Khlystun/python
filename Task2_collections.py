@@ -34,7 +34,6 @@ print("List of dictionaries")
 for i in new_list_of_dicts:
     # Print each dictionary found in the list
     print(i)
-
 # Create one common dict for previously generated list of dicts
 def create_common_dict(dict_list):
     # Initialize an empty dictionary to store the aggregated results
@@ -50,6 +49,7 @@ def create_common_dict(dict_list):
     # Print the set of all unique keys accumulated from all dictionaries
     print("keys_of_common_dict ", keys_of_common_dict)
     # Iterate through each unique key to perform aggregation
+    dict_tuple=tuple(dict_list)
     for key in keys_of_common_dict:
         # Initialize variables for tracking the index of the dictionary and the maximum value associated with the key
         index_of_name_of_key = 0
@@ -59,7 +59,7 @@ def create_common_dict(dict_list):
         # Counter to track how many dictionaries contain the current key
         count_exist=0
         # Iterate through each dictionary again to find the maximum value for the current key
-        for dictionary in dict_list:
+        for dictionary in dict_tuple:
             # Check if the current key exists in the dictionary
             if dictionary.get(key) is not None:
                 # Fetch the value associated with the key
