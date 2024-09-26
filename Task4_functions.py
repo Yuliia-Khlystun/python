@@ -28,16 +28,14 @@ def create_common_dict(dict_list, keys_of_common_dict):
     for key in keys_of_common_dict:
         index_of_name_of_key = 0
         max_value_of_key = 0
-        count_all = 1
         count_exist = 0
-        for dictionary in dict_list:
-            if dictionary.get(key) is not None:
-                value_of_key = dictionary.get(key)
+        for index, dictionary in enumerate(dict_list):
+            if key in dictionary:
                 count_exist += 1
+                value_of_key = dictionary[key]
                 if value_of_key > max_value_of_key:
                     max_value_of_key = value_of_key
-                    index_of_name_of_key = count_all
-            count_all += 1
+                    index_of_name_of_key = index + 1
         if count_exist == 1:
             common_dict[key] = max_value_of_key
         else:
@@ -45,11 +43,12 @@ def create_common_dict(dict_list, keys_of_common_dict):
             common_dict[name_of_key] = max_value_of_key
     return common_dict
 def main(a, b):
-    list_of_dicts = generate_list_of_dicts(a, b)
+    dict_list = generate_list_of_dicts(a, b)
     print("List of dictionaries:")
-    for i in list_of_dicts:
+    for i in dict_list:
         print(i)
-    keys_of_common_dict = aggregate_keys(list_of_dicts)
-    common_dict = create_common_dict(list_of_dicts, keys_of_common_dict)
+    keys_of_common_dict = aggregate_keys(dict_list)
+    dict_tuple = tuple(dict_list)
+    common_dict = create_common_dict(dict_tuple, keys_of_common_dict)
     print("common dict", common_dict)
 main(2,10)

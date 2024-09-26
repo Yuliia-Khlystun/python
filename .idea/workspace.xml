@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1944d853-f996-49df-8c56-308fabc49458" name="Changes" comment="done">
+      <change afterPath="$PROJECT_DIR$/Task4_functions_strings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task2_collections.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task2_collections.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task4_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task4_functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +51,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.Hometask1.executor": "Run",
-    "Python.Task2_collections.executor": "Debug",
+    "Python.Task2_collections.executor": "Run",
     "Python.Task3_String.executor": "Run",
     "Python.Task4_functions.executor": "Run",
+    "Python.Task4_functions_strings.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master"
   }
@@ -121,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727167815659</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="done">
+      <option name="closed" value="true" />
+      <created>1727244838509</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727244838509</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -130,13 +140,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Task2_collections.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
