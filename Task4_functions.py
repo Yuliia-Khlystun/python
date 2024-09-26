@@ -42,7 +42,7 @@ def create_common_dict(dict_list, keys_of_common_dict):
             name_of_key = key + "_" + str(index_of_name_of_key)
             common_dict[name_of_key] = max_value_of_key
     return common_dict
-def main(a, b):
+def main_function(a, b):
     dict_list = generate_list_of_dicts(a, b)
     print("List of dictionaries:")
     for i in dict_list:
@@ -51,4 +51,4 @@ def main(a, b):
     dict_tuple = tuple(dict_list)
     common_dict = create_common_dict(dict_tuple, keys_of_common_dict)
     print("common dict", common_dict)
-main(2,10)
+main_function(2,10)

@@ -27,7 +27,7 @@ def add_sentence (text):
     text += ' ' + new_sentence.capitalize()
     return text
 
-def main(text):
+def main_function(text):
     replaced_iz = normalize_misspellings(text, ' iz ', ' is ')
     capitalized_text = capitalize_text(replaced_iz)
     count_whitespaces(capitalized_text)
@@ -44,5 +44,5 @@ text = """homEwork:
 	it iZ misspeLLing here. fix“iZ” with correct “is”, but ONLY when it Iz a mistAKE. 
 
 	last iz TO calculate nuMber OF Whitespace characteRS in this Text. caREFULL, not only Spaces, but ALL whitespaces. I got 87."""
-main(text)
+main_function(text)
 
