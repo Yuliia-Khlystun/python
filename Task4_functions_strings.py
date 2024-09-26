@@ -10,7 +10,7 @@ def normalize_misspellings (text, old, new):
 def capitalize_first_letter(match):
     return match.group(0).upper()
 def capitalize_text (text):
-    capitalized_text = re.sub(r'(?<=[.!?\n]\s)(\w)', capitalize_first_letter, text)
+    capitalized_text = re.sub(r"(?<=[.!?])\s*(\w)", capitalize_first_letter, text)
     return capitalized_text
 
 # Count all whitespace characters in the text
@@ -28,7 +28,7 @@ def add_sentence (text):
     return text
 
 def main(text):
-    replaced_iz = normalize_misspellings(text, 'iz', 'is')
+    replaced_iz = normalize_misspellings(text, ' iz ', ' is ')
     capitalized_text = capitalize_text(replaced_iz)
     count_whitespaces(capitalized_text)
     result = add_sentence(capitalized_text)
