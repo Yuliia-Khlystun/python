@@ -1,4 +1,5 @@
 import random
+import re
 import string
 
 
@@ -42,13 +43,29 @@ def create_common_dict(dict_list, keys_of_common_dict):
             name_of_key = key + "_" + str(index_of_name_of_key)
             common_dict[name_of_key] = max_value_of_key
     return common_dict
-def main_function(a, b):
-    dict_list = generate_list_of_dicts(a, b)
-    print("List of dictionaries:")
-    for i in dict_list:
-        print(i)
-    keys_of_common_dict = aggregate_keys(dict_list)
-    dict_tuple = tuple(dict_list)
-    common_dict = create_common_dict(dict_tuple, keys_of_common_dict)
-    print("common dict", common_dict)
-main_function(2,10)
+
+def normalize_misspellings (text, old, new):
+    # Normalize and correct misspellings in the text
+    replaced_iz = text.lower().replace(old, new).capitalize()
+    return replaced_iz
+
+# Capitalize the first letter of each sentence:
+def capitalize_first_letter(match):
+    return match.group(0).upper()
+def capitalize_text (text):
+    capitalized_text = re.sub(r"(?<=[.!?])\s*(\w)", capitalize_first_letter, text)
+    return capitalized_text
+
+# Count all whitespace characters in the text
+def count_whitespaces(text):
+    whitespaces = re.findall(r'\s', text)
+    count_whitespace = len(whitespaces)
+    return count_whitespace
+
+# Form a new sentence from the last word of each existing sentence
+def add_sentence (text):
+    last_words = re.findall(r'\b(\w+)\b(?=[.?!])', text)
+    new_sentence = ' '.join(last_words) + '.'
+    text += ' ' + new_sentence.capitalize()
+    return text
+
