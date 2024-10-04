@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1944d853-f996-49df-8c56-308fabc49458" name="Changes" comment="done">
+      <change afterPath="$PROJECT_DIR$/Publishing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task4_functions_strings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task4_functions_strings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_feed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/News_feed.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task4_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task4_functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +52,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python.Classes.executor&quot;: &quot;Run&quot;,
     &quot;Python.Hometask1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Publishing.executor&quot;: &quot;Run&quot;,
     &quot;Python.Task2_collections.executor&quot;: &quot;Run&quot;,
     &quot;Python.Task3_String.executor&quot;: &quot;Run&quot;,
     &quot;Python.Task4_functions.executor&quot;: &quot;Run&quot;,
@@ -58,6 +63,11 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yuliia_khlystun\PycharmProjects\pythonProject" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -162,7 +172,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727337021571</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="done">
+      <option name="closed" value="true" />
+      <created>1727448377718</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727448377718</updated>
+    </task>
+    <task id="LOCAL-00013" summary="done">
+      <option name="closed" value="true" />
+      <created>1727947149640</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727947149640</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -12,7 +12,28 @@ class News(Publication):
         super().__init__(text)
         self.city = city
     def form_text_to_publish(self):
-        text_to_publish = "--------------------\n" + self.text + "\n" + self.city + '\n' + str(datetime.now()) + '\n' + '--------------------'+ '\n'
+        text_to_publish = self.text + "\n" + self.city + '\n' + str(datetime.now().date()) + '\n' + '--------------------'+ '\n'
         return text_to_publish
-a = News('Emergency rescue operations completed at the site of the airstrike in Kharkiv','Kharkiv')
-a.publish('News_feed.txt')
+class PrivateAd(Publication):
+    def __init__(self, text, expiration_date):
+        super().__init__(text)
+        self.expiration_date = expiration_date
+    def form_text_to_publish(self):
+        target_date = datetime.strptime(self.expiration_date, "%Y-%m-%d").date()
+        date_difference = target_date - datetime.now().date()
+        text_to_publish = self.text + "\n" + '\n' + str(date_difference.days) + ' days left' + '\n' + '--------------------'+ '\n'
+        return text_to_publish
+class RestaurantReview(Publication):
+    def __init__(self, text, rating):
+        super().__init__(text)
+        self.rating=rating
+    def form_text_to_publish(self):
+        status = ''
+        if self.rating <5:
+            status+="It's bad restaurant"
+        elif 5 <= self.rating < 7:
+            status += "It's mid-range restaurant"
+        else:
+            status += "It's great restaurant"
+        text_to_publish = self.text + "\n" + '\n' + status + '\n' + '--------------------'+ '\n'
+        return text_to_publish
