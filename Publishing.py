@@ -1,4 +1,5 @@
-from Task4_functions import create_publication
+from Task4_functions import create_publication_from_input
+from Task6_files import FromTXT, create_publication_from_txt
 
 #a = News('Emergency rescue operations completed at the site of the airstrike in Kharkiv','Kharkiv')
 #a.publish('News_feed.txt')
@@ -8,4 +9,8 @@ from Task4_functions import create_publication
 #c = RestaurantReview('The Garden Bistro offers a cozy atmosphere and a delightful menu that features a blend of classic and innovative dishes. The service is attentive and swift, ensuring a pleasant dining experience for all guests. Their signature dish, the truffle mushroom risotto, is a must-try, perfectly cooked and richly flavored.', 8.6)
 #c.publish('News_feed.txt')
 
-create_publication()
+
+
+create_publication_from_input()
+
+create_publication_from_txt(-3, 'Tamplate.txt', 'News_feed.txt')

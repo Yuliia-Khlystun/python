@@ -4,7 +4,6 @@ import string
 
 from Classes import News, PrivateAd, RestaurantReview
 
-
 def generate_random_keys():
     """Generates a set of random lowercase alphabet keys."""
     num_keys = random.randint(1, 26)  # 1 to 26 keys
@@ -71,36 +70,35 @@ def add_sentence (text):
     text += ' ' + new_sentence.capitalize()
     return text
 
-def create_publication():
+def create_publication_from_input():
     kind_of_publication = input("Please, enter the type of publication: News, Private ad or Restaurant Review ")
     file_name = input('Please, enter the name of file for publication ')
     if kind_of_publication == 'News':
-        create_news().publish(file_name)
+        create_news_from_input().publish(file_name)
     elif kind_of_publication=='Private ad':
-        create_private_ad().publish(file_name)
+        create_private_ad_from_input().publish(file_name)
     elif kind_of_publication=='Restaurant Review':
-        create_restaurant_review().publish(file_name)
+        create_restaurant_review_from_input().publish(file_name)
     else:
         raise ValueError('Type of publication should be News, Private ad or Restaurant Review')
 
-def create_news():
+def create_news_from_input():
     text = input("Please, enter the text ")
     city = input("Please, enter the city ")
     a = News(text, city)
     return a
 
-def create_private_ad():
+def create_private_ad_from_input():
     text = input("Please, enter the text ")
     expiration_date = input("Please, enter expiration date in format YYYY-MM-DD ")
     b = PrivateAd(text, expiration_date)
     return b
 
-def create_restaurant_review():
+def create_restaurant_review_from_input():
     text = input("Please, enter the text ")
     rating = input("Please, enter rating ")
     c = RestaurantReview(text, rating)
     return c
-
 
 
 
