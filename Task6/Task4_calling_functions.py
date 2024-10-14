@@ -1,4 +1,4 @@
-from Task4_functions import normalize_misspellings, capitalize_text, count_whitespaces, add_sentence, \
+from Task6.Task4_functions import normalize_misspellings, capitalize_text, count_whitespaces, add_sentence, \
     generate_list_of_dicts, aggregate_keys, create_common_dict
 
 text = """homEwork:

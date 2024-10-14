@@ -1,8 +1,10 @@
+import os
 import random
 import re
 import string
 
-from Classes import News, PrivateAd, RestaurantReview
+from Classes import News, PrivateAd, RestaurantReview, FromTXT
+
 
 def generate_random_keys():
     """Generates a set of random lowercase alphabet keys."""
@@ -71,7 +73,7 @@ def add_sentence (text):
     return text
 
 def create_publication_from_input():
-    kind_of_publication = input("Please, enter the type of publication: News, Private ad or Restaurant Review ")
+    kind_of_publication = input("Please, enter the type of publication: News, Private ad, Restaurant Review or File_TXT")
     file_name = input('Please, enter the name of file for publication ')
     if kind_of_publication == 'News':
         create_news_from_input().publish(file_name)
@@ -79,6 +81,17 @@ def create_publication_from_input():
         create_private_ad_from_input().publish(file_name)
     elif kind_of_publication=='Restaurant Review':
         create_restaurant_review_from_input().publish(file_name)
+    elif kind_of_publication=='File_TXT':
+        record_index = input('Please, enter the number of records to add to publication (When a positive number is entered, the first records are displayed. '
+                             'When a negative number is entered, the last records are displayed. If the number entered exceeds the total number of entries, '
+                             'all records are published) ')
+        input_filename = input('Please, enter the name of input txt file ')
+        need_file_path = input('Do you need to enter file_path? Yes/No ')
+        if need_file_path=='Yes':
+            file_path = input('Please, enter file_path ')
+        else:
+            file_path = os.getcwd()
+        create_publication_from_txt(record_index, input_filename, file_name, file_path)
     else:
         raise ValueError('Type of publication should be News, Private ad or Restaurant Review')
 
@@ -99,6 +112,10 @@ def create_restaurant_review_from_input():
     rating = input("Please, enter rating ")
     c = RestaurantReview(text, rating)
     return c
+
+def create_publication_from_txt(record_index, input_filename, output_filename, file_path):
+    d = FromTXT(record_index, input_filename, file_path)
+    d.publish(output_filename)
 
 
 

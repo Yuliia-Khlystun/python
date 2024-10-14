@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1944d853-f996-49df-8c56-308fabc49458" name="Changes" comment="done">
-      <change afterPath="$PROJECT_DIR$/Tamplate.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task6/Input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Task6/News_feed.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/News_feed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/News_feed.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Publishing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Publishing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Task4_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task4_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task6/Classes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_feed.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Publishing.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task6/Publishing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task4_calling_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task6/Task4_calling_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task4_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Task6/Task4_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task6_files.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +66,16 @@
     "Python.Task4_functions_strings.executor": "Run",
     "Python.chornovyk.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/yuliia_khlystun/PycharmProjects/pythonProject/Task6"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\yuliia_khlystun\PycharmProjects\pythonProject\Task6" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yuliia_khlystun\PycharmProjects\pythonProject\Task6" />
       <recent name="C:\Users\yuliia_khlystun\PycharmProjects\pythonProject" />
     </key>
   </component>
@@ -191,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727947149640</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="done">
+      <option name="closed" value="true" />
+      <created>1728755729617</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1728755729617</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -200,13 +216,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Publishing.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
