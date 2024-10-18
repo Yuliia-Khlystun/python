@@ -1,6 +1,8 @@
+import json
 import os
 import re
 from datetime import datetime
+
 class Publication:
     def __init__(self, text):
         self.text = text
@@ -40,10 +42,9 @@ class RestaurantReview(Publication):
         text_to_publish ='\n'+'Restaurant Review--------------------'+ '\n' + self.text + '\n' + status + '\n'
         return text_to_publish
 class FromTXT(Publication):
-    def __init__(self, record_index, input_filename, file_path):
+    def __init__(self, record_index, input_filename):
         self.record_index = record_index
-        self.input_filename = os.path.join(file_path, input_filename)
-        self.file_path = file_path
+        self.input_filename = input_filename
 
     def form_text_to_publish(self):
         try:
@@ -79,5 +80,33 @@ class FromTXT(Publication):
             print(f"Input file '{self.input_filename}' has been removed after processing.")
         except FileNotFoundError:
             print(f"File {file_name} not found.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+class FromJSON(FromTXT):
+    def __init__(self, record_index, input_filename):
+        self.record_index = record_index
+        self.input_filename = input_filename
+    def form_text_to_publish(self):
+        try:
+            with open(self.input_filename, 'r') as file:
+                data = json.load(file)
+            if len(data)> int(self.record_index)>=0:
+                part_of_data = data[:int(self.record_index)]
+            elif int(self.record_index)<0 and (0-int(self.record_index))< len(data):
+                part_of_data = data[int(self.record_index):]
+            else:
+                part_of_data = data
+            text_to_pub=''
+            for item in part_of_data:
+                if item['type'] == 'News':
+                    text_to_pub+=News(item['text'], item['city']).form_text_to_publish()
+                elif item['type'] == 'PrivateAd':
+                    text_to_pub+=PrivateAd(item['text'], item['expiration_date']).form_text_to_publish()
+                elif item['type'] == 'RestaurantReview':
+                    text_to_pub += RestaurantReview(item["text"], item['rating']).form_text_to_publish()
+            return text_to_pub
+        except FileNotFoundError:
+            print(f"File {self.input_filename} not found.")
         except Exception as e:
             print(f"An error occurred: {e}")

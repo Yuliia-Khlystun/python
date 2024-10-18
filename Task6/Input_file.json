@@ -1,0 +1,17 @@
+[
+  {
+    "type": "News",
+    "text": "With a record 35 million foreign visitors expected in Japan this year, Kamikochi is an idyllic, relaxing break from some of the country's more heavily touristed destinations.",
+    "city": "Kamikochi"
+  },
+  {
+    "type": "PrivateAd",
+    "text": " Visit our website today and get an exclusive 10% discount on your first purchase!",
+    "expiration_date": "2024-11-18"
+  },
+  {
+    "type": "RestaurantReview",
+    "text": "The charming \"La Bella Vita\" restaurant impresses with its authentic Italian dishes, elegant interior, and attentive service, creating a memorable experience for every guest.",
+    "rating": "9,6"
+  }
+]

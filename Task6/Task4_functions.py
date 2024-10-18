@@ -6,6 +6,7 @@ import string
 from collections import Counter
 
 from Classes import News, PrivateAd, RestaurantReview, FromTXT
+from Classes import FromJSON
 
 
 def generate_random_keys():
@@ -75,8 +76,10 @@ def add_sentence (text):
     return text
 
 def create_publication_from_input():
-    kind_of_publication = input("Please, enter the number to choose the type of publication: 1 - News, 2 - Private ad, 3- Restaurant Review, 4-File_TXT")
+    kind_of_publication = input("Please, enter the number to choose the type of publication: 1 - News, 2 - Private ad, 3- Restaurant Review, 4-File_TXT, 5-File_JSON")
     file_name = input('Please, enter the name of file for publication ')
+    if len(file_name)<2:
+        file_name='News_feed.txt'
     if kind_of_publication == '1':
         create_news_from_input().publish(file_name)
     elif kind_of_publication=='2':
@@ -87,18 +90,19 @@ def create_publication_from_input():
         record_index = input('Please, enter the number of records to add to publication (When a positive number is entered, the first records are displayed. '
                              'When a negative number is entered, the last records are displayed. If the number entered exceeds the total number of entries, '
                              'all records are published) ')
-        input_filename = input('Please, enter the name of input txt file ')
-        need_file_path = input('Do you need to enter file_path? Yes/No ')
-        if need_file_path=='Yes':
-            file_path = input('Please, enter file_path ')
-        else:
-            file_path = os.getcwd()
-        create_publication_from_txt(record_index, input_filename, file_name, file_path)
+        input_filename = input('Please, enter the name of input file ')
+        create_publication_from_txt(record_index, input_filename, file_name)
+    elif kind_of_publication=='5':
+        record_index = input('Please, enter the number of records to add to publication (When a positive number is entered, the first records are displayed. '
+                             'When a negative number is entered, the last records are displayed. If the number entered exceeds the total number of entries, '
+                             'all records are published) ')
+        input_filename = input('Please, enter the name of input file ')
+        create_publication_from_json(record_index, input_filename, file_name)
     else:
-        raise ValueError('Type of publication should be News, Private ad or Restaurant Review')
+        raise ValueError('You should enter number from 1 to 5')
     repeat = input('Do you want to enter one more publication? Enter 1 if Yes')
     if repeat=='1':
-        create_news_from_input()
+        create_publication_from_input()
     else:
         create_csv(file_name)
 
@@ -120,8 +124,12 @@ def create_restaurant_review_from_input():
     c = RestaurantReview(text, rating)
     return c
 
-def create_publication_from_txt(record_index, input_filename, output_filename, file_path):
-    d = FromTXT(record_index, input_filename, file_path)
+def create_publication_from_txt(record_index, input_filename, output_filename):
+    d = FromTXT(record_index, input_filename)
+    d.publish(output_filename)
+
+def create_publication_from_json(record_index, input_filename, output_filename):
+    d = FromJSON(record_index, input_filename)
     d.publish(output_filename)
 
 def create_csv(output_file):
@@ -153,6 +161,5 @@ def create_csv(output_file):
         print('CSV files have been created successfully')
     except IOError:
         print('Error: File does not exist')
-create_csv('News_feed.txt')
 
 

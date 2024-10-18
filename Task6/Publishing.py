@@ -1,4 +1,4 @@
-from Task6.Task4_functions import create_publication_from_input, create_csv
+from Task4_functions import create_publication_from_input, create_csv
 
 #a = News('Emergency rescue operations completed at the site of the airstrike in Kharkiv','Kharkiv')
 #a.publish('News_feed.txt')
