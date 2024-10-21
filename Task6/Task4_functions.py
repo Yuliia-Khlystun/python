@@ -78,8 +78,8 @@ def add_sentence (text):
 def create_publication_from_input():
     kind_of_publication = input("Please, enter the number to choose the type of publication: 1 - News, 2 - Private ad, 3- Restaurant Review, 4-File_TXT, 5-File_JSON")
     file_name = input('Please, enter the name of file for publication ')
-    if len(file_name)<2:
-        file_name='News_feed.txt'
+    if len(file_name)==0:
+        file_name+='News_feed.txt'
     if kind_of_publication == '1':
         create_news_from_input().publish(file_name)
     elif kind_of_publication=='2':
