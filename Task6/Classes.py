@@ -2,6 +2,7 @@ import json
 import os
 import re
 from datetime import datetime
+import xml.etree.ElementTree as ET
 
 class Publication:
     def __init__(self, text):
@@ -80,6 +81,40 @@ class FromTXT(Publication):
             print(f"Input file '{self.input_filename}' has been removed after processing.")
         except FileNotFoundError:
             print(f"File {file_name} not found.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+class FromXML(FromTXT):
+    def __init__(self, record_index, input_filename):
+        self.record_index = record_index
+        self.input_filename = input_filename
+    def form_text_to_publish(self):
+        try:
+            tree = ET.parse(self.input_filename)
+            root = tree.getroot()
+            list_of_publications = []
+            for child in root:
+                sub_dict = {}
+                for sub_child in child:
+                    sub_dict[sub_child.tag] = sub_child.text
+                list_of_publications.append(sub_dict)
+            if len(list_of_publications)> int(self.record_index)>=0:
+                part_of_data = list_of_publications[:int(self.record_index)]
+            elif int(self.record_index)<0 and (0-int(self.record_index))< len(list_of_publications):
+                part_of_data = list_of_publications[int(self.record_index):]
+            else:
+                part_of_data = list_of_publications
+            text_to_pub=''
+            for item in part_of_data:
+                if item['type'] == 'News':
+                    text_to_pub+=News(item['text'], item['city']).form_text_to_publish()
+                elif item['type'] == 'PrivateAd':
+                    text_to_pub+=PrivateAd(item['text'], item['expiration_date']).form_text_to_publish()
+                elif item['type'] == 'RestaurantReview':
+                    text_to_pub += RestaurantReview(item["text"], item['rating']).form_text_to_publish()
+            return text_to_pub
+        except FileNotFoundError:
+            print(f"File {self.input_filename} not found.")
         except Exception as e:
             print(f"An error occurred: {e}")
 

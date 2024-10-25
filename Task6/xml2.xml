@@ -1,0 +1,17 @@
+<Data>
+  <Publication>
+    <type>News</type>
+    <text>Hakone is preparing to host over 25 million visitors this year, offering a tranquil escape with its hot springs and natural beauty</text>
+    <city>Hakone</city>
+  </Publication>
+  <Publication>
+    <type>PrivateAd</type>
+    <text>Join our community today to receive a special 15% discount on your next booking!</text>
+    <expiration_date>2025-01-01</expiration_date>
+  </Publication>
+  <Publication>
+    <type>RestaurantReview</type>
+    <text>The exquisite 'Sapore di Mare' delights with its fresh seafood cuisine, stunning ocean views, and top-notch service, promising an unmatched dining experience</text>
+    <rating>9,2</rating>
+  </Publication>
+</Data>

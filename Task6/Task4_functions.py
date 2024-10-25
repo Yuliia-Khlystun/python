@@ -7,6 +7,7 @@ from collections import Counter
 
 from Classes import News, PrivateAd, RestaurantReview, FromTXT
 from Classes import FromJSON
+from Task6.Classes import FromXML
 
 
 def generate_random_keys():
@@ -76,7 +77,7 @@ def add_sentence (text):
     return text
 
 def create_publication_from_input():
-    kind_of_publication = input("Please, enter the number to choose the type of publication: 1 - News, 2 - Private ad, 3- Restaurant Review, 4-File_TXT, 5-File_JSON")
+    kind_of_publication = input("Please, enter the number to choose the type of publication: 1 - News, 2 - Private ad, 3- Restaurant Review, 4-File_TXT, 5-File_JSON, 6-File_XML")
     file_name = input('Please, enter the name of file for publication ')
     if len(file_name)==0:
         file_name+='News_feed.txt'
@@ -98,8 +99,14 @@ def create_publication_from_input():
                              'all records are published) ')
         input_filename = input('Please, enter the name of input file ')
         create_publication_from_json(record_index, input_filename, file_name)
+    elif kind_of_publication=='6':
+        record_index = input('Please, enter the number of records to add to publication (When a positive number is entered, the first records are displayed. '
+                             'When a negative number is entered, the last records are displayed. If the number entered exceeds the total number of entries, '
+                             'all records are published) ')
+        input_filename = input('Please, enter the name of input file ')
+        create_publication_from_xml(record_index, input_filename, file_name)
     else:
-        raise ValueError('You should enter number from 1 to 5')
+        raise ValueError('You should enter number from 1 to 6')
     repeat = input('Do you want to enter one more publication? Enter 1 if Yes')
     if repeat=='1':
         create_publication_from_input()
@@ -130,6 +137,10 @@ def create_publication_from_txt(record_index, input_filename, output_filename):
 
 def create_publication_from_json(record_index, input_filename, output_filename):
     d = FromJSON(record_index, input_filename)
+    d.publish(output_filename)
+
+def create_publication_from_xml(record_index, input_filename, output_filename):
+    d = FromXML(record_index, input_filename)
     d.publish(output_filename)
 
 def create_csv(output_file):
