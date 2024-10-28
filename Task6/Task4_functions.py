@@ -1,7 +1,7 @@
 import csv
-import os
 import random
 import re
+import sqlite3
 import string
 from collections import Counter
 
@@ -82,11 +82,11 @@ def create_publication_from_input():
     if len(file_name)==0:
         file_name+='News_feed.txt'
     if kind_of_publication == '1':
-        create_news_from_input().publish(file_name)
+        create_news_from_input().write_in_db().publish(file_name)
     elif kind_of_publication=='2':
-        create_private_ad_from_input().publish(file_name)
+        create_private_ad_from_input().write_in_db().publish(file_name)
     elif kind_of_publication=='3':
-        create_restaurant_review_from_input().publish(file_name)
+        create_restaurant_review_from_input().write_in_db().publish(file_name)
     elif kind_of_publication=='4':
         record_index = input('Please, enter the number of records to add to publication (When a positive number is entered, the first records are displayed. '
                              'When a negative number is entered, the last records are displayed. If the number entered exceeds the total number of entries, '
@@ -172,5 +172,29 @@ def create_csv(output_file):
         print('CSV files have been created successfully')
     except IOError:
         print('Error: File does not exist')
+
+def write_in_db(publ):
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    if isinstance(publ, PrivateAd):
+        text=publ.text
+        expiration_date=publ.expiration_date
+        cursor.execute(f"IF NOT EXISTS (SELECT * FROM PrivateAd WHERE text = {text} AND expiration_date = {expiration_date}) "
+                       f"THEN INSERT INTO PrivateAd (text, expiration_date) VALUES ({text}, {expiration_date}); "
+                       f"END IF")
+    elif isinstance(publ, News):
+        text = publ.text
+        city = publ.city
+        cursor.execute(f"IF NOT EXISTS (SELECT * FROM News WHERE text = {text} AND city = {city}) "
+                       f"THEN INSERT INTO News (text, city) VALUES ({text}, {city})"
+                       f"END IF")
+    elif isinstance(publ, RestaurantReview):
+        text = publ.text
+        rating = publ.rating
+        cursor.execute(f"IF NOT EXISTS (SELECT * FROM RestaurantReview WHERE text = {text} AND rating = {rating}) "
+                       f"THEN INSERT INTO RestaurantReview (text, rating) VALUES ({text}, {rating})"
+                       f"END IF")
+    cursor.close()
+    conn.close()
 
 
